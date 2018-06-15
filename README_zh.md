@@ -10,7 +10,7 @@ Python实现的简单区块链，主要用于学习使用
 
 为了简单，blockchain-python没有任何软件包的依赖，直接执行源码就可以了。
 
-1. 安装[Python 3.6+](https://www.python.org/downloads/) . 
+1. 安装[Python 3.2+](https://www.python.org/downloads/) . 
 2. 下载源码，Git Clone 
 ```
 $ git clone https://github.com/Carlos-Zen/blockchain.git

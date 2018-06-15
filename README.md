@@ -10,7 +10,7 @@ The verification based on cryptography has not yet been realized, and the verifi
 
 ## Installation
 
-1. Make sure [Python 3.6+](https://www.python.org/downloads/) is installed. 
+1. Make sure [Python 3.2+](https://www.python.org/downloads/) is installed. 
 2. Git Clone
 ```
 $ git clone https://github.com/Carlos-Zen/blockchain.git
