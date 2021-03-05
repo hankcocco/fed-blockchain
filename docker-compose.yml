@@ -1,0 +1,55 @@
+version: '2.4'
+services:
+  blockchain1:
+    image: blockchain:latest
+    restart: always
+    container_name: blockchain1
+    network_mode: "host"
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    ports:
+      - 3009:3009
+    command:
+      - /bin/sh
+      - -c
+      - |
+        python console.py account init_name blockchain1
+        python -u console.py node run 3009  0  1000
+  blockchain2:
+    image: blockchain:latest
+    restart: always
+    container_name: blockchain2
+    network_mode: "host"
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    ports:
+      - 3010:3010
+    depends_on:
+      - blockchain1
+    command:
+      - /bin/sh
+      - -c
+      - |
+        python console.py account init_name blockchain2
+        python -u console.py node run 3010 1000 2000
+  blockchain3:
+    image: blockchain:latest
+    restart: always
+    container_name: blockchain3
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    network_mode: "host"
+    ports:
+      - 3011:3011
+    depends_on:
+      - blockchain1
+    command:
+      - /bin/sh
+      - -c
+      - |
+        python console.py account init_name blockchain3
+        python -u console.py node run 3011 2000 3000
+
